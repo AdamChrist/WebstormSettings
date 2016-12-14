@@ -1,0 +1,33 @@
+<templateSet group="JavaScript">
+  <template name="dvam" value="export default {&#10;&#10;  namespace: '$COMPONENT$',&#10;&#10;  state: {$END$},&#10;&#10;  effects: {},&#10;&#10;  reducers: {},&#10;&#10;  subscriptions: {}&#10;}" description="dva model" toReformat="true" toShortenFQNames="true">
+    <variable name="COMPONENT" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="eff" value="* $NAME$ ({ payload }, { call, put }){&#10;    $END$&#10;}," toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(String)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="disp" value="dispatch({ type: '$TYPE$', payload:{$END$}})" toReformat="true" toShortenFQNames="true">
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="seqm" value="module.exports = (sequelize, DataTypes) =&gt;  sequelize.define('$NAME$', {&#10;    id: {&#10;      type: DataTypes.UUID,&#10;      defaultValue: DataTypes.UUIDV1,&#10;      primaryKey: true,&#10;    },&#10;    $END$&#10;  }, {&#10;    paranoid: true,&#10;    tableName: '$PREFIX$_$NAME$'&#10;  });" description="sequlize model" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(fileNameWithoutExtension())" defaultValue="" alwaysStopAt="true" />
+    <variable name="PREFIX" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="imp" value="import $END$ from '$NAME$';" description="es6 import" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>
